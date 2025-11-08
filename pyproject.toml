@@ -1,0 +1,73 @@
+# Build System Configuration
+# This section tells Python which tools are needed to build/install the project.
+# setuptools: The standard packaging tool for Python projects.
+# wheel: Allows building .whl (wheel) distribution files, used by pip for fast installs.
+
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# Project Metadata
+# This section defines your project's information and dependencies.
+# It’s the modern replacement for setup.py and requirements.txt.
+
+[project]
+
+# The name of your project/package (as it will appear on PyPI or pip show)
+name = "mlproject"
+
+# The version number of your project — bump this as your project evolves
+version = "0.0.1"
+
+# A short one-line description of what your project does
+description = "End-to-end machine learning project with AWS and Docker deployment"
+
+# Path to your README file (used for documentation on PyPI or in metadata)
+readme = "README.md"
+
+# The minimum version of Python required to run your project
+requires-python = ">=3.13"
+
+# License type (MIT in this case)
+license = { text = "MIT" }
+
+# Author information — can include multiple authors if needed
+authors = [
+  { name = "Muhammad Ahmad", email = "ahmad2001khan@gmail.com" }
+]
+
+
+#  Dependencies
+# These are the core libraries the project depends on at runtime.
+# Equivalent to what you’d previously list in requirements.txt.
+dependencies = [
+  "pandas",
+  "numpy",
+  "seaborn"
+]
+
+
+#  Project URLs
+# Useful links for documentation, source code, or issues.
+# You can add more, e.g., "Documentation", "Bug Tracker", etc.
+[project.urls]
+Homepage = "https://github.com/a1hmad23/ml-project"
+
+
+#  setuptools Configuration
+# This section configures how setuptools finds and packages your code.
+# It replaces find_packages() from setup.py.
+[tool.setuptools]
+
+# Whether to include non-code files specified by MANIFEST.in (if any)
+include-package-data = true
+
+
+#  Package Discovery
+# Tells setuptools where to look for Python packages (modules with __init__.py).
+# The "src" layout is a common best practice: it keeps source code separate
+# from tests, configs, and build files.
+[tool.setuptools.packages.find]
+
+# Search for packages inside the "src" directory
+where = ["src"]

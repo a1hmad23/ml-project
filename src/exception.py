@@ -1,5 +1,5 @@
 import traceback  # Provides utilities to extract, format, and print stack traces
-import logging
+from logger import logging
 
 def format_error(error: Exception) -> str:
     """
@@ -48,3 +48,10 @@ class CustomException(Exception):
     #overriding the parent __str__
     def __str__(self):
         return self.error_message
+
+if __name__ == '__main__':
+    try:
+        a = 1/0
+    except Exception as e:
+        logging.info('Divide by Zero')
+        raise CustomException(e)
